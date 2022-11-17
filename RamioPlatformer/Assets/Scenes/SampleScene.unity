@@ -244,7 +244,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 9dd1f6b5aad51af43b8806f7d3c0856c, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -263,15 +263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   jumpSpeed: 1
-  level: 0
   health: 100
-  healthSlider: {fileID: 0}
-  jumpSlider: {fileID: 0}
-  speedSlider: {fileID: 0}
-  UI: {fileID: 0}
-  player: {fileID: 0}
-  playerJ: {fileID: 0}
-  playerS: {fileID: 0}
 --- !u!61 &40939093
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -282,7 +274,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: -0.9352381}
@@ -514,7 +506,7 @@ GameObject:
   - component: {fileID: 960878046}
   m_Layer: 0
   m_Name: Tilemap
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

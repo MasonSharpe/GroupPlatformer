@@ -19,7 +19,9 @@ public class Movement : MonoBehaviour
     float invinsTimer = 0;
 
     public int health = 100;
-    //float jumpJuice = 10;
+    float jumpJuice = 10;
+
+    public GameObject world;
    // float speedJuice = 10;
 
     //public Slider healthSlider;
@@ -55,7 +57,15 @@ public class Movement : MonoBehaviour
     }
     // Update is called once per frame
     void FixedUpdate()
-    {
+	{
+		if (Input.GetKey(KeyCode.LeftArrow))
+		{
+			world.transform.Rotate(new Vector3(0, 0, 1));
+		}
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            world.transform.Rotate(new Vector3(0, 0, -1));
+        }
         if (transform.position.y < -10)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -77,58 +87,23 @@ public class Movement : MonoBehaviour
         {
             spriteR.flipX = false;
         }
-       // if (Input.GetKey(KeyCode.O) && !Input.GetKey(KeyCode.P))
-       // {
-            //if (jumpJuice > 0)
-           // {
-               // GetComponent<Animator>().runtimeAnimatorController = playerJ;
-              //  jumpJuice -= 0.12f;
-              //  rb.gravityScale = 0.2f;
-          //  }
-           // else
-           // {
-              //  rb.gravityScale = 1f;
-              //  jumpJuice = -5;
-              //  GetComponent<Animator>().runtimeAnimatorController = player;
-           // }
-      //  }
-       // else
-       // {
-           // rb.gravityScale = 1f;
-      //  }
-       // if (Input.GetKey(KeyCode.P) && !Input.GetKey(KeyCode.O))
-      //  {
-           // if (speedJuice > 0)
-          //  {
-               // GetComponent<Animator>().runtimeAnimatorController = playerS;
-               // speedJuice -= 0.12f;
-               // rb.gravityScale = 2f;
-               // moveSpeed = 10;
-         //   }
-         //   else
-           // {
-               // moveSpeed = 5;
-               // rb.gravityScale = 1f;
-               // speedJuice = -5;
-               // GetComponent<Animator>().runtimeAnimatorController = player;
-           // }
-        //}
-       // else
-       // {
-           // moveSpeed = 5;
-     //   }
-       // if (!Input.GetKey(KeyCode.P) && !Input.GetKey(KeyCode.O))
-       // {
-           // GetComponent<Animator>().runtimeAnimatorController = player;
-       // }
-          //  if (jumpJuice < 10)
-      //  {
-            //jumpJuice += 0.05f;
-       // }
-       // if (speedJuice < 10)
-      //  {
-            //speedJuice += 0.05f;
-      //  }
+        if (Input.GetKey(KeyCode.UpArrow))
+        {
+            if (jumpJuice > 0)
+           {
+              //jumpJuice -= 0.12f;
+              rb.gravityScale = 0.2f;
+           }
+           else
+           {
+              rb.gravityScale = 1f;
+              jumpJuice = -5;
+           }
+        }
+       else
+       {
+           rb.gravityScale = 1f;
+       }
       //  healthSlider.value = health;
        // jumpSlider.value = jumpJuice;
        // speedSlider.value = speedJuice;
