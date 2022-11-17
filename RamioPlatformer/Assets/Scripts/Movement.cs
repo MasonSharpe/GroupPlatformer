@@ -66,7 +66,7 @@ public class Movement : MonoBehaviour
         {
             world.transform.Rotate(new Vector3(0, 0, -1));
         }
-        if (transform.position.y < -10)
+        if (transform.position.y < -100)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
