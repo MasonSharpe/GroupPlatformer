@@ -13,6 +13,9 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float rotateSpeed = 50.0f;
     bool grounded = false;
+    public GameObject rotateText;
+    public GameObject compass;
+    public GameObject scaleText;
     //Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -64,17 +67,20 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			//transform.Rotate(new Vector3(0, 0, 1));
-            world.transform.Rotate(new Vector3(0, 0, (100 / 2 / Mathf.PI / dist)));
+            world.transform.Rotate(new Vector3(0, 0, (60 / 2 / Mathf.PI / dist)));
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //transform.Rotate(new Vector3(0, 0, -1));
-            world.transform.Rotate(new Vector3(0, 0, -(100 / 2 / Mathf.PI / dist)));
+            world.transform.Rotate(new Vector3(0, 0, -(60 / 2 / Mathf.PI / dist)));
         }
         if (transform.position.y < -100)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+        compass.transform.rotation = world.transform.rotation;
+        scaleText.GetComponent<Text>().text = (Mathf.Round(Mathf.Log10(dist) * 100) / 100).ToString() + "x";
+        rotateText.GetComponent<Text>().text = Mathf.Round(world.transform.rotation.eulerAngles.z).ToString() + "°";
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
