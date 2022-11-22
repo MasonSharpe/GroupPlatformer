@@ -222,8 +222,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d86437fd43e62428aed79066cb12d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpSpeed: 1
+  moveSpeed: 7
+  jumpSpeed: 1.2
+  rotateSpeed: 50
+  rotateText: {fileID: 0}
+  compass: {fileID: 0}
+  scaleText: {fileID: 0}
   health: 100
   world: {fileID: 0}
 --- !u!61 &4157931405199643914

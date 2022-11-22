@@ -13,9 +13,13 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float rotateSpeed = 50.0f;
     bool grounded = false;
+    int parts = 0;
+    public int partsNeeded;
     public GameObject rotateText;
     public GameObject compass;
+    public GameObject partsText;
     public GameObject scaleText;
+    public GameObject slider;
     //Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -79,8 +83,10 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         compass.transform.rotation = world.transform.rotation;
+        partsText.GetComponent<Text>().text = (partsNeeded - parts).ToString();
         scaleText.GetComponent<Text>().text = (Mathf.Round(Mathf.Log10(dist) * 100) / 100).ToString() + "x";
         rotateText.GetComponent<Text>().text = Mathf.Round(world.transform.rotation.eulerAngles.z).ToString() + "°";
+        slider.GetComponent<Slider>().value = jumpJuice;
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
@@ -102,7 +108,7 @@ public class Movement : MonoBehaviour
         {
             if (jumpJuice > 0)
            {
-              //jumpJuice -= 0.12f;
+              jumpJuice -= 0.03f;
               rb.gravityScale = 0.2f;
            }
            else
@@ -128,6 +134,15 @@ public class Movement : MonoBehaviour
         } else if (collision.gameObject.layer == 9)
         {
             //SceneManager.LoadScene("Level" + (level + 1));
+        } else if (collision.gameObject.tag == "Pickup")
+        {
+            jumpJuice = 10;
+            Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Part")
+        {
+            parts += 1;
+            Destroy(collision.gameObject);
         }
     }
 

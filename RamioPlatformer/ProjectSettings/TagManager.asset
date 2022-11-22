@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - Damage
+  - Pickup
+  - Part
   layers:
   - Default
   - TransparentFX
