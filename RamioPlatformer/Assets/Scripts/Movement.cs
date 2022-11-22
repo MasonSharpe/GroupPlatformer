@@ -83,7 +83,7 @@ public class Movement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         compass.transform.rotation = world.transform.rotation;
-        partsText.GetComponent<Text>().text = (partsNeeded - parts).ToString();
+        partsText.GetComponent<Text>().text = (partsNeeded - parts).ToString() + " Left";
         scaleText.GetComponent<Text>().text = (Mathf.Round(Mathf.Log10(dist) * 100) / 100).ToString() + "x";
         rotateText.GetComponent<Text>().text = Mathf.Round(world.transform.rotation.eulerAngles.z).ToString() + "°";
         slider.GetComponent<Slider>().value = jumpJuice;
@@ -138,11 +138,15 @@ public class Movement : MonoBehaviour
         {
             jumpJuice = 10;
             Destroy(collision.gameObject);
-        }
-        else if (collision.gameObject.tag == "Part")
+        } else if (collision.gameObject.tag == "Part")
         {
             parts += 1;
+            print("h");
             Destroy(collision.gameObject);
+        }
+        else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
