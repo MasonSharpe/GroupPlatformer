@@ -58,13 +58,16 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
 	{
-		if (Input.GetKey(KeyCode.LeftArrow))
+        float dist = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
+        if (Input.GetKey(KeyCode.LeftArrow))
 		{
-			world.transform.Rotate(new Vector3(0, 0, 1));
-		}
+			//transform.Rotate(new Vector3(0, 0, 1));
+            world.transform.Rotate(new Vector3(0, 0, dist / Mathf.PI));
+        }
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            world.transform.Rotate(new Vector3(0, 0, -1));
+            //transform.Rotate(new Vector3(0, 0, -1));
+            world.transform.Rotate(new Vector3(0, 0, -(dist / Mathf.PI)));
         }
         if (transform.position.y < -100)
         {
