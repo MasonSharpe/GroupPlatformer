@@ -10,6 +10,8 @@ public class Movement : MonoBehaviour
     float moveSpeed = 5.0f;
     [SerializeField]
     float jumpSpeed = 1.0f;
+    [SerializeField]
+    float rotateSpeed = 50.0f;
     bool grounded = false;
     //Animator animator;
     SpriteRenderer spriteR;
@@ -62,12 +64,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
 		{
 			//transform.Rotate(new Vector3(0, 0, 1));
-            world.transform.Rotate(new Vector3(0, 0, dist / Mathf.PI));
+            world.transform.Rotate(new Vector3(0, 0, (100 / 2 / Mathf.PI / dist)));
         }
         if (Input.GetKey(KeyCode.RightArrow))
         {
             //transform.Rotate(new Vector3(0, 0, -1));
-            world.transform.Rotate(new Vector3(0, 0, -(dist / Mathf.PI)));
+            world.transform.Rotate(new Vector3(0, 0, -(100 / 2 / Mathf.PI / dist)));
         }
         if (transform.position.y < -100)
         {
