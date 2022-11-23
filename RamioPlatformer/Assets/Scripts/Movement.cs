@@ -141,7 +141,6 @@ public class Movement : MonoBehaviour
         } else if (collision.gameObject.tag == "Part")
         {
             parts += 1;
-            print("h");
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
