@@ -21,12 +21,14 @@ public class Movement : MonoBehaviour
     public GameObject partsText;
     public GameObject scaleText;
     public GameObject slider;
+    public GameObject tutText;
     //Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
    // Rigidbody2D feet;
    // public int level;
     float invinsTimer = 0;
+    float tutTimer = 0;
 
     public int health = 100;
     float jumpJuice = 10;
@@ -90,6 +92,7 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
+        tutTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
         if (rb.velocity.y < -0.1f && !grounded)
         {
@@ -151,6 +154,15 @@ public class Movement : MonoBehaviour
         {
             progressPowerups++;
             Destroy(collision.gameObject);
+            tutText.SetActive(true);
+            tutTimer = 5;
+            if (progressPowerups == 1)
+            {
+                tutText.GetComponent<Text>().text = "Hold Up Arrow to active low gravity mode! But be careful! You only have a limited amount!";
+            } else if (progressPowerups == 2)
+            {
+                tutText.GetComponent<Text>().text = "Try pressing the left and right arrows...";
+            }
 
         }
     }
