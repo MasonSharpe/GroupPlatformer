@@ -94,6 +94,10 @@ public class Movement : MonoBehaviour
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
+        if (tutTimer < 0 && tutText.activeInHierarchy)
+        {
+            tutText.SetActive(false);
+        }
         if (rb.velocity.y < -0.1f && !grounded)
         {
             //animator.SetTrigger("Fall");
