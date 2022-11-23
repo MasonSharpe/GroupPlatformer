@@ -14,6 +14,7 @@ public class Movement : MonoBehaviour
     float rotateSpeed = 50.0f;
     bool grounded = false;
     int parts = 0;
+    int progressPowerups = 0;
     public int partsNeeded;
     public GameObject rotateText;
     public GameObject compass;
@@ -59,7 +60,7 @@ public class Movement : MonoBehaviour
             grounded = false;
             //animator.SetTrigger("Jump");
         }
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -68,15 +69,15 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
 	{
         float dist = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
-        if (Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow) && progressPowerups > 1)
 		{
 			//transform.Rotate(new Vector3(0, 0, 1));
-            world.transform.Rotate(new Vector3(0, 0, (60 / 2 / Mathf.PI / dist)));
+            world.transform.Rotate(new Vector3(0, 0, (120 / 2 / Mathf.PI / dist)));
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) && progressPowerups > 1)
         {
             //transform.Rotate(new Vector3(0, 0, -1));
-            world.transform.Rotate(new Vector3(0, 0, -(60 / 2 / Mathf.PI / dist)));
+            world.transform.Rotate(new Vector3(0, 0, -(120 / 2 / Mathf.PI / dist)));
         }
         if (transform.position.y < -200)
         {
@@ -104,7 +105,7 @@ public class Movement : MonoBehaviour
         {
             spriteR.flipX = false;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow) && progressPowerups > 0)
         {
             if (jumpJuice > 0)
            {
@@ -146,6 +147,11 @@ public class Movement : MonoBehaviour
         else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        } else if (collision.gameObject.tag == "ProgressPowerup")
+        {
+            progressPowerups++;
+            Destroy(collision.gameObject);
+
         }
     }
 

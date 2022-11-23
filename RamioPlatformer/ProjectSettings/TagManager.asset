@@ -9,6 +9,7 @@ TagManager:
   - Pickup
   - Part
   - Spaceship
+  - ProgressPowerup
   layers:
   - Default
   - TransparentFX
