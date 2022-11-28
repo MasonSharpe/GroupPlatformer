@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     int parts = 0;
     int progressPowerups = 0;
     public int partsNeeded;
+    public int level;
+    public GameObject healthSlider;
     public GameObject rotateText;
     public GameObject compass;
     public GameObject partsText;
@@ -51,7 +53,11 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
-        
+        if (level > 1)
+        {
+            progressPowerups = 2;
+        }
+        healthSlider.GetComponent<Slider>().value = health;
     }
 
     private void Update()
@@ -87,9 +93,14 @@ public class Movement : MonoBehaviour
         }
         compass.transform.rotation = world.transform.rotation;
         partsText.GetComponent<Text>().text = (partsNeeded - parts).ToString() + " Left";
-        scaleText.GetComponent<Text>().text = (Mathf.Round(Mathf.Log10(dist) * 100) / 100).ToString() + "x";
+        scaleText.GetComponent<Text>().text = (Mathf.Round((1f - (dist / 100f)) * 100) / 100).ToString() + "x";
+        if (dist > 100)
+        {
+            scaleText.GetComponent<Text>().text = "0.01x";
+        }
         rotateText.GetComponent<Text>().text = Mathf.Round(world.transform.rotation.eulerAngles.z).ToString() + "°";
         slider.GetComponent<Slider>().value = jumpJuice;
+        healthSlider.GetComponent<Slider>().value = health;
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
@@ -145,6 +156,7 @@ public class Movement : MonoBehaviour
         } else if (collision.gameObject.tag == "Pickup")
         {
             jumpJuice = 10;
+            health = 100;
             Destroy(collision.gameObject);
         } else if (collision.gameObject.tag == "Part")
         {
