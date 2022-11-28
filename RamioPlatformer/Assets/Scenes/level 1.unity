@@ -733,6 +733,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 6113273459950817818, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 543043112, guid: 8afe72ad10a542544bb4d5e4e838473a, type: 3}
+    - target: {fileID: 6113273460337756150, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 218264827, guid: 8afe72ad10a542544bb4d5e4e838473a, type: 3}
+    - target: {fileID: 6113273460533220067, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1018898969, guid: 8afe72ad10a542544bb4d5e4e838473a, type: 3}
+    - target: {fileID: 7403777862748574626, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1953536651, guid: 8afe72ad10a542544bb4d5e4e838473a, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
 --- !u!1001 &5754356204787153342
