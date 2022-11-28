@@ -24,11 +24,10 @@ public class Movement : MonoBehaviour
     public GameObject scaleText;
     public GameObject slider;
     public GameObject tutText;
-    //Animator animator;
+    Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
    // Rigidbody2D feet;
-   // public int level;
     float invinsTimer = 0;
     float tutTimer = 0;
 
@@ -36,22 +35,14 @@ public class Movement : MonoBehaviour
     float jumpJuice = 10;
 
     public GameObject world;
-   // float speedJuice = 10;
 
-    //public Slider healthSlider;
-    //public Slider jumpSlider;
-    //public Slider speedSlider;
-   // public GameObject UI;
 
     //public RuntimeAnimatorController player;
     //public RuntimeAnimatorController playerJ;
-    //public RuntimeAnimatorController playerS;
     // Start is called before the first frame update
     void Start()
-    {
-        //UI.GetComponent<Canvas>().enabled = true;
-        rb = GetComponent<Rigidbody2D>();
-        //animator = GetComponent<Animator>();
+    {        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
         if (level > 1)
         {
@@ -66,7 +57,7 @@ public class Movement : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
             grounded = false;
-            //animator.SetTrigger("Jump");
+            animator.SetTrigger("Jump");
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -79,12 +70,10 @@ public class Movement : MonoBehaviour
         float dist = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
         if (Input.GetKey(KeyCode.LeftArrow) && progressPowerups > 1)
 		{
-			//transform.Rotate(new Vector3(0, 0, 1));
             world.transform.Rotate(new Vector3(0, 0, (120 / 2 / Mathf.PI / dist)));
         }
         if (Input.GetKey(KeyCode.RightArrow) && progressPowerups > 1)
         {
-            //transform.Rotate(new Vector3(0, 0, -1));
             world.transform.Rotate(new Vector3(0, 0, -(120 / 2 / Mathf.PI / dist)));
         }
         if (transform.position.y < -200)
@@ -111,10 +100,10 @@ public class Movement : MonoBehaviour
         }
         if (rb.velocity.y < -0.1f && !grounded)
         {
-            //animator.SetTrigger("Fall");
+            animator.SetTrigger("Fall");
         }
-       // animator.SetFloat("xInput", moveX);
-       // animator.SetBool("Grounded", grounded);
+       animator.SetFloat("xInput", moveX);
+       animator.SetBool("Grounded", grounded);
         if (moveX < 0)
         {
             spriteR.flipX = true;
@@ -140,9 +129,6 @@ public class Movement : MonoBehaviour
        {
            rb.gravityScale = 1f;
        }
-      //  healthSlider.value = health;
-       // jumpSlider.value = jumpJuice;
-       // speedSlider.value = speedJuice;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -152,7 +138,7 @@ public class Movement : MonoBehaviour
             grounded = true;
         } else if (collision.gameObject.layer == 9)
         {
-            //SceneManager.LoadScene("Level" + (level + 1));
+            SceneManager.LoadScene("level " + (level + 1));
         } else if (collision.gameObject.tag == "Pickup")
         {
             jumpJuice = 10;
