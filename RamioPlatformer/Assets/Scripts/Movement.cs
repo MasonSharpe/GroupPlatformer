@@ -135,7 +135,11 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(heavyScale);
+        if (collision.gameObject.tag == "Water")
+        {
+            heavyScale = 2;
+            print(heavyScale);
+        }
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
@@ -170,10 +174,6 @@ public class Movement : MonoBehaviour
                 tutText.GetComponent<Text>().text = "Try pressing the left and right arrows...";
             }
         }
-        else if (collision.gameObject.tag == "Water")
-        {
-            heavyScale = 2;
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -190,10 +190,10 @@ public class Movement : MonoBehaviour
         {
             grounded = false;
         }
-        else if (collision.gameObject.tag == "Water")
+        if (collision.gameObject.tag == "Water")
         {
-            print(heavyScale);
             heavyScale = 1;
+            Debug.Log("leaving");
         }
     }
 
@@ -207,6 +207,11 @@ public class Movement : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+        }
+        if (collision.gameObject.tag == "Water")
+        {
+            heavyScale = 2;
+            print(heavyScale);
         }
     }
 }

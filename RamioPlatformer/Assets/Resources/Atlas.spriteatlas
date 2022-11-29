@@ -45,11 +45,15 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
+    - {fileID: 2800000, guid: 611e39429fe3fdf4e8d50b9b723e1d34, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: -1632807043, guid: 611e39429fe3fdf4e8d50b9b723e1d34, type: 3}
+  - {fileID: 416252029, guid: 611e39429fe3fdf4e8d50b9b723e1d34, type: 3}
+  - {fileID: 170303102, guid: 611e39429fe3fdf4e8d50b9b723e1d34, type: 3}
   - {fileID: 1984672364, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   - {fileID: -602663631, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   - {fileID: -1676461061, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
@@ -64,6 +68,9 @@ SpriteAtlas:
   - {fileID: 2140311251, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   - {fileID: -1549808855, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   m_PackedSpriteNamesToIndex:
+  - background_2
+  - background_0
+  - background_1
   - level 1 tilmap_4
   - level 1 tilmap_5
   - level 1 tilmap_6
