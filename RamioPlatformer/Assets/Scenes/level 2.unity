@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 876935905}
   - component: {fileID: 876935904}
   - component: {fileID: 876935903}
+  - component: {fileID: 876935906}
   m_Layer: 4
   m_Name: Water
   m_TagString: Water
@@ -213,7 +214,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -33014,6 +33015,27 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!50 &876935906
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 876935901}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &994475646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33424,7 +33446,7 @@ PrefabInstance:
       objectReference: {fileID: 994475652}
     - target: {fileID: 4157931405199643916, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: m_SleepingMode
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4157931405199643916, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: m_CollisionDetection
