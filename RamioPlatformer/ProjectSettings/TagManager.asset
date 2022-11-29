@@ -10,6 +10,7 @@ TagManager:
   - Part
   - Spaceship
   - ProgressPowerup
+  - Water
   layers:
   - Default
   - TransparentFX

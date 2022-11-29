@@ -27,7 +27,8 @@ public class Movement : MonoBehaviour
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
-   // Rigidbody2D feet;
+    // Rigidbody2D feet;
+    float heavyScale = 1;
     float invinsTimer = 0;
     float tutTimer = 0;
 
@@ -41,7 +42,8 @@ public class Movement : MonoBehaviour
     //public RuntimeAnimatorController playerJ;
     // Start is called before the first frame update
     void Start()
-    {        rb = GetComponent<Rigidbody2D>();
+    {        
+        rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
         if (level > 1)
@@ -117,34 +119,38 @@ public class Movement : MonoBehaviour
             if (jumpJuice > 0)
            {
               jumpJuice -= 0.03f;
-              rb.gravityScale = 0.2f;
+              rb.gravityScale *= 0.2f;
            }
            else
            {
-              rb.gravityScale = 1f;
+              rb.gravityScale = heavyScale;
               jumpJuice = -5;
            }
         }
        else
        {
-           rb.gravityScale = 1f;
+           rb.gravityScale = heavyScale;
        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        print(heavyScale);
         if (collision.gameObject.tag == "Ground")
         {
             grounded = true;
-        } else if (collision.gameObject.layer == 9)
+        }
+        else if (collision.gameObject.layer == 9)
         {
             SceneManager.LoadScene("level " + (level + 1));
-        } else if (collision.gameObject.tag == "Pickup")
+        }
+        else if (collision.gameObject.tag == "Pickup")
         {
             jumpJuice = 10;
             health = 100;
             Destroy(collision.gameObject);
-        } else if (collision.gameObject.tag == "Part")
+        }
+        else if (collision.gameObject.tag == "Part")
         {
             parts += 1;
             Destroy(collision.gameObject);
@@ -158,11 +164,15 @@ public class Movement : MonoBehaviour
             if (progressPowerups == 1)
             {
                 tutText.GetComponent<Text>().text = "Hold Up Arrow to active low gravity mode! But be careful! You only have a limited amount!";
-            } else if (progressPowerups == 2)
+            }
+            else if (progressPowerups == 2)
             {
                 tutText.GetComponent<Text>().text = "Try pressing the left and right arrows...";
             }
-
+        }
+        else if (collision.gameObject.tag == "Water")
+        {
+            heavyScale = 2;
         }
     }
 
@@ -179,6 +189,11 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             grounded = false;
+        }
+        else if (collision.gameObject.tag == "Water")
+        {
+            print(heavyScale);
+            heavyScale = 1;
         }
     }
 
