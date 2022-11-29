@@ -55,7 +55,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        print(grounded);
+        print(heavyScale);
         if (grounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
@@ -120,7 +120,7 @@ public class Movement : MonoBehaviour
             if (jumpJuice > 0)
            {
               jumpJuice -= 0.03f;
-              rb.gravityScale *= 0.2f;
+              rb.gravityScale = heavyScale * 0.2f;
            }
            else
            {
