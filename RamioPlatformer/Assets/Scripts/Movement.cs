@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        print(grounded);
         if (grounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
@@ -193,7 +194,6 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Water")
         {
             heavyScale = 1;
-            Debug.Log("leaving");
         }
     }
 
@@ -207,11 +207,6 @@ public class Movement : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
-        }
-        if (collision.gameObject.tag == "Water")
-        {
-            heavyScale = 2;
-            print(heavyScale);
         }
     }
 }
