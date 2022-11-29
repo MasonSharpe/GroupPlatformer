@@ -149,10 +149,7 @@ public class Movement : MonoBehaviour
             parts += 1;
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        } else if (collision.gameObject.tag == "ProgressPowerup")
+        else if (collision.gameObject.tag == "ProgressPowerup")
         {
             progressPowerups++;
             Destroy(collision.gameObject);
@@ -166,6 +163,14 @@ public class Movement : MonoBehaviour
                 tutText.GetComponent<Text>().text = "Try pressing the left and right arrows...";
             }
 
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
