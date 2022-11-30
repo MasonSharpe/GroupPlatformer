@@ -31,5 +31,13 @@ public class Enemy : MonoBehaviour
             endPoint = startPoint;
             startPoint = end;
         }
+        if (rb.velocity.x < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+        }
     }
 }
