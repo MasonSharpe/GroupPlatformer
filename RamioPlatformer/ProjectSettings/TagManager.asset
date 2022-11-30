@@ -11,6 +11,7 @@ TagManager:
   - Spaceship
   - ProgressPowerup
   - Water
+  - Unfreeze
   layers:
   - Default
   - TransparentFX
