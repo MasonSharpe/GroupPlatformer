@@ -68,6 +68,12 @@ SpriteAtlas:
   - {fileID: 1262367444, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   - {fileID: 2140311251, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
   - {fileID: -1549808855, guid: 764aed58c3e8f0e419e519173ba990ac, type: 3}
+  - {fileID: 1811547072, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: 1574571139, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: 1918411372, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: -645727910, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: -483112642, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: -533728577, guid: b177d7abc02013b49a187fb019345092, type: 3}
   m_PackedSpriteNamesToIndex:
   - background_2
   - background_0
@@ -85,6 +91,12 @@ SpriteAtlas:
   - level 1 tilmap_12
   - level 1 tilmap_11
   - level 1 tilmap_10
+  - water_5
+  - water_4
+  - water_1
+  - water_0
+  - water_3
+  - water_2
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0
