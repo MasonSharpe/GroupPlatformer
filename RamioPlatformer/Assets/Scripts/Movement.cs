@@ -67,10 +67,14 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (heavyScale == 2)
+        if (heavyScale == 2 || level == 4)
         {
             coldTimer -= Time.deltaTime;
-            if (coldTimer <= 0)
+            if (heavyScale == 2 && level == 4)
+            {
+                coldTimer -= Time.deltaTime * 3;
+            }
+                if (coldTimer <= 0)
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
@@ -183,6 +187,15 @@ public class Movement : MonoBehaviour
             else if (progressPowerups == 2)
             {
                 tutText.GetComponent<Text>().text = "Try pressing the left and right arrows...";
+            }
+        }
+        else if (collision.gameObject.tag == "Unfreeze")
+        {
+            Destroy(collision.gameObject);
+            coldTimer += 50;
+            if (coldTimer > 150)
+            {
+                coldTimer = 150;
             }
         }
     }
