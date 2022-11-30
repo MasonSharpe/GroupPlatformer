@@ -25,6 +25,8 @@ public class Movement : MonoBehaviour
     public GameObject slider;
     public GameObject tutText;
     public GameObject tempSlider;
+    public Transform water1;
+    public Transform water2;
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -67,17 +69,17 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (heavyScale == 2 || level == 4)
+        if (heavyScale == 2 && level == 4)
+        {
+            coldTimer -= Time.deltaTime * 4;
+        }
+        if ((transform.position.y < water1.position.y && transform.position.y > water2.position.y) && level == 2)
         {
             coldTimer -= Time.deltaTime;
-            if (heavyScale == 2 && level == 4)
-            {
-                coldTimer -= Time.deltaTime * 3;
-            }
-                if (coldTimer <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+        }
+        if (coldTimer <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
     // Update is called once per frame
