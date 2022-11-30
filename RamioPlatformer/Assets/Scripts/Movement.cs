@@ -73,7 +73,7 @@ public class Movement : MonoBehaviour
         {
             if (heavyScale == 2)
             {
-                coldTimer -= Time.deltaTime * 4;
+                coldTimer -= Time.deltaTime * 2;
             }
             coldTimer -= Time.deltaTime;
         }
