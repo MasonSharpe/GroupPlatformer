@@ -189,6 +189,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 871067854}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: tempSlider
+      value: 
+      objectReference: {fileID: 1144385302}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: partsNeeded
       value: 2
       objectReference: {fileID: 0}
@@ -279,6 +283,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 768668166744917692, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2449422427983128983, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -0.21279907
@@ -387,6 +395,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8378415421740979666, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8378415421740979666, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8625978373432255048, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -405,6 +421,11 @@ GameObject:
 --- !u!1 &1144385301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767244844841281566, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+  m_PrefabInstance: {fileID: 1144385299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1144385302 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 768668166744917692, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
   m_PrefabInstance: {fileID: 1144385299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1160931652 stripped
@@ -3398,6 +3419,10 @@ PrefabInstance:
     - target: {fileID: 8043867169324728316, guid: 28d335ec714d21d4d9230868fd4514e5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8043867169876044790, guid: 28d335ec714d21d4d9230868fd4514e5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28d335ec714d21d4d9230868fd4514e5, type: 3}
