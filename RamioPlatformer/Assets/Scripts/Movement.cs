@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public GameObject scaleText;
     public GameObject slider;
     public GameObject tutText;
+    public GameObject tempSlider;
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -31,6 +32,7 @@ public class Movement : MonoBehaviour
     float heavyScale = 1;
     float invinsTimer = 0;
     float tutTimer = 0;
+    float coldTimer = 150f;
 
     public int health = 100;
     float jumpJuice = 10;
@@ -55,7 +57,6 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
-        print(heavyScale);
         if (grounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
@@ -65,6 +66,14 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (heavyScale == 2)
+        {
+            coldTimer -= Time.deltaTime;
+            if (coldTimer <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
     // Update is called once per frame
@@ -93,6 +102,7 @@ public class Movement : MonoBehaviour
         rotateText.GetComponent<Text>().text = Mathf.Round(world.transform.rotation.eulerAngles.z).ToString() + "°";
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
+        tempSlider.GetComponent<Slider>().value = coldTimer;
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
@@ -139,7 +149,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Water")
         {
             heavyScale = 2;
-            print(heavyScale);
+            
         }
         if (collision.gameObject.tag == "Ground")
         {
