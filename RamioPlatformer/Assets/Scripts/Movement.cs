@@ -69,15 +69,19 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (heavyScale == 2 && level == 4)
+        if (level == 4)
         {
-            coldTimer -= Time.deltaTime * 4;
+            if (heavyScale == 2)
+            {
+                coldTimer -= Time.deltaTime * 4;
+            }
+            coldTimer -= Time.deltaTime;
         }
         if (level == 2)
         {
             if (transform.position.y < water1.position.y && transform.position.y > water2.position.y)
             {
-                coldTimer -= Time.deltaTime;
+                coldTimer -= Time.deltaTime * 2;
                 heavyScale = 2;
             }
             else
@@ -202,7 +206,7 @@ public class Movement : MonoBehaviour
         else if (collision.gameObject.tag == "Unfreeze")
         {
             Destroy(collision.gameObject);
-            coldTimer += 50;
+            coldTimer += 100;
             if (coldTimer > 150)
             {
                 coldTimer = 150;
