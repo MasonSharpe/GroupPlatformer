@@ -173,7 +173,7 @@ public class Movement : MonoBehaviour
         {
             grounded = true;
         }
-        else if (collision.gameObject.layer == 9)
+        else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
         {
             SceneManager.LoadScene("level " + (level + 1));
         }
@@ -214,13 +214,6 @@ public class Movement : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }
 
     private void OnTriggerExit2D(Collider2D collision)
     {

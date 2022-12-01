@@ -165,6 +165,10 @@ PrefabInstance:
       value: 0.4198113
       objectReference: {fileID: 0}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: world
       value: 
       objectReference: {fileID: 1160931652}
@@ -3249,6 +3253,10 @@ PrefabInstance:
     - target: {fileID: 2167109756148235951, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
       propertyPath: m_Name
       value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 4484154663761739906, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6113273459950817818, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
       propertyPath: m_Sprite
