@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
+    Autoload manager;
     void Start()
     {
-        
+        manager = Autoload.canvas.GetComponent<Autoload>();
     }
 
     // Update is called once per frame
@@ -30,5 +31,10 @@ public class MainMenu : MonoBehaviour
     public void Menu()
     {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("level " + (manager.level + 1));
     }
 }

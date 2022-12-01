@@ -27,6 +27,7 @@ public class Movement : MonoBehaviour
     public GameObject tempSlider;
     public Transform water1;
     public Transform water2;
+    public Autoload manager;
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -50,6 +51,8 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
+        manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.level = level;
         if (level > 1)
         {
             progressPowerups = 2;
@@ -175,7 +178,7 @@ public class Movement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
         {
-            SceneManager.LoadScene("level " + (level + 1));
+            SceneManager.LoadScene("win");
         }
         else if (collision.gameObject.tag == "Pickup")
         {
