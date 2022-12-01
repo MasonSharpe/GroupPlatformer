@@ -525,8 +525,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: 0.01955831, y: 0}
+  m_Size: {x: 0.8357098, y: 2}
   m_Direction: 0
 --- !u!114 &4157931405199643915
 MonoBehaviour:
@@ -553,6 +553,8 @@ MonoBehaviour:
   slider: {fileID: 0}
   tutText: {fileID: 2344106613482356008}
   tempSlider: {fileID: 0}
+  water1: {fileID: 0}
+  water2: {fileID: 0}
   health: 100
   world: {fileID: 0}
 --- !u!95 &2972889999273577880

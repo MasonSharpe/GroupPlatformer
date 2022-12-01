@@ -81,7 +81,7 @@ public class Movement : MonoBehaviour
         {
             if (transform.position.y < water1.position.y && transform.position.y > water2.position.y)
             {
-                coldTimer -= Time.deltaTime * 2;
+                coldTimer -= Time.deltaTime * 1.75f;
                 heavyScale = 2;
             }
             else
