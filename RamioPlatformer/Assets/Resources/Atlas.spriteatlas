@@ -75,6 +75,20 @@ SpriteAtlas:
   - {fileID: -645727910, guid: b177d7abc02013b49a187fb019345092, type: 3}
   - {fileID: -483112642, guid: b177d7abc02013b49a187fb019345092, type: 3}
   - {fileID: -533728577, guid: b177d7abc02013b49a187fb019345092, type: 3}
+  - {fileID: -220493457, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 544692447, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 261372944, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: -2061110789, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: -2065425910, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 367804966, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 1636335805, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 1683790719, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 1675180439, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: -1297442990, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 113134083, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: -244134058, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 1705728410, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
+  - {fileID: 2093284265, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
   m_PackedSpriteNamesToIndex:
   - background_2
   - background_0
@@ -98,6 +112,20 @@ SpriteAtlas:
   - water_0
   - water_3
   - water_2
+  - ice_9
+  - ice_8
+  - ice_5
+  - ice_4
+  - ice_7
+  - ice_6
+  - ice_1
+  - ice_0
+  - ice_3
+  - ice_2
+  - ice_10
+  - ice_11
+  - ice_12
+  - ice_13
   m_RenderDataMap: {}
   m_Tag: Atlas
   m_IsVariant: 0

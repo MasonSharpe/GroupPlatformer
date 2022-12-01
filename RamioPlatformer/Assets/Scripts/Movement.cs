@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        if (level == 4)
+        if (level == 3)
         {
             if (heavyScale == 2)
             {
