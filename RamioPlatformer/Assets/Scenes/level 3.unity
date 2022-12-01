@@ -349,6 +349,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+--- !u!1 &633146042 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957343397769399239, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+  m_PrefabInstance: {fileID: 633146041}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &769628114 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1767244844841281566, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
@@ -389,6 +394,10 @@ PrefabInstance:
       propertyPath: rotateText
       value: 
       objectReference: {fileID: 71434719}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: speedTimer
+      value: 
+      objectReference: {fileID: 633146042}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: tempSlider
       value: 
