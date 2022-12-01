@@ -193,12 +193,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 871067854}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: speedTimer
+      value: 
+      objectReference: {fileID: 1462282082}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: tempSlider
       value: 
       objectReference: {fileID: 1144385302}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: partsNeeded
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: healthSlider
@@ -436,6 +440,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2167109756148235951, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
   m_PrefabInstance: {fileID: 2167109755020892139}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1462282082 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957343397769399239, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+  m_PrefabInstance: {fileID: 1144385299}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1493008405 stripped
 GameObject:

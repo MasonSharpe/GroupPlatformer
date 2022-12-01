@@ -25,6 +25,7 @@ public class Movement : MonoBehaviour
     public GameObject slider;
     public GameObject tutText;
     public GameObject tempSlider;
+    public GameObject speedTimer;
     public Transform water1;
     public Transform water2;
     public Autoload manager;
@@ -124,6 +125,7 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
+        speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
