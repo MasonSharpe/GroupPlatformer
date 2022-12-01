@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &169467161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957343397769399239, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+  m_PrefabInstance: {fileID: 867456102}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &345948970
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +163,10 @@ PrefabInstance:
       propertyPath: rotateText
       value: 
       objectReference: {fileID: 867456107}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: speedTimer
+      value: 
+      objectReference: {fileID: 169467161}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: tempSlider
       value: 

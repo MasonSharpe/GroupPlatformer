@@ -473,6 +473,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 948352248}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: speedTimer
+      value: 
+      objectReference: {fileID: 1237184455}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: tempSlider
       value: 
       objectReference: {fileID: 948352243}
@@ -15919,4 +15923,9 @@ PrefabInstance:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2167109756148235951, guid: 23dcd3d4249d5494c99670d2d4da0146, type: 3}
   m_PrefabInstance: {fileID: 1233843993}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1237184455 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8957343397769399239, guid: 14931dc0907f19343ab80b5bb4f7cf59, type: 3}
+  m_PrefabInstance: {fileID: 948352242}
   m_PrefabAsset: {fileID: 0}
