@@ -30,6 +30,7 @@ public class MainMenu : MonoBehaviour
 
     public void Menu()
     {
+        Destroy(Autoload.canvas);
         SceneManager.LoadScene("MainMenu");
     }
 

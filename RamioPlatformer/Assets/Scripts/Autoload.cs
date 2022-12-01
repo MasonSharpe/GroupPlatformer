@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Autoload : MonoBehaviour
 {
     public static GameObject canvas;
     public GameObject preCanv;
     public int level;
+    public float speedrunTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +19,9 @@ public class Autoload : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().name != "win" && SceneManager.GetActiveScene().name != "Main Menu")
+        {
+            speedrunTimer += Time.deltaTime;
+        }
     }
 }
