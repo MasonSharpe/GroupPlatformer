@@ -365,7 +365,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1256406236}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Exit
+        m_MethodName: toggleTimer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -644,7 +644,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Hide Timer
+  m_Text: Enable Timer
 --- !u!222 &756922370
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -839,6 +839,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453d9d4051a8d74080d0197567ca1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  toggleText: {fileID: 756922367}
 --- !u!1 &1320781727
 GameObject:
   m_ObjectHideFlags: 0

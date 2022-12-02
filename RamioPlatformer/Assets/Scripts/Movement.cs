@@ -52,17 +52,23 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
-        manager = Autoload.canvas.GetComponent<Autoload>();
-        manager.level = level;
+        //manager = Autoload.canvas.GetComponent<Autoload>();
+       // manager.level = level;
         if (level > 1)
         {
             progressPowerups = 2;
         }
         healthSlider.GetComponent<Slider>().value = health;
+        if (!manager.timerVisible)
+        {
+            print("asd");
+            Autoload.canvas.SetActive(false);
+        }
     }
 
     private void Update()
     {
+        print(progressPowerups);
         if (grounded && Input.GetButtonDown("Jump"))
         {
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
