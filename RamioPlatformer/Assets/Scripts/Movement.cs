@@ -125,7 +125,7 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
-        speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+       // speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
