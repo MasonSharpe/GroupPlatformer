@@ -38,4 +38,9 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("level " + (manager.level + 1));
     }
+
+    public void toggleTimer()
+    {
+        manager.timerVisible = !manager.timerVisible;
+    }
 }

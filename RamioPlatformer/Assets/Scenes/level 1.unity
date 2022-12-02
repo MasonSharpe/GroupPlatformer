@@ -202,7 +202,7 @@ PrefabInstance:
       objectReference: {fileID: 1144385302}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: partsNeeded
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: healthSlider
