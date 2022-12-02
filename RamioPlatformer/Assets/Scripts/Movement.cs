@@ -43,12 +43,13 @@ public class Movement : MonoBehaviour
 
     public GameObject world;
     void Start()
-    {        
+    {
+        manager.firstTime = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
-       // manager = Autoload.canvas.GetComponent<Autoload>();
-       // manager.level = level;
+        manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.level = level;
         if (level > 1)
         {
             progressPowerups = 2;
@@ -70,7 +71,6 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Destroy(Autoload.canvas);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         if (level == 3)
@@ -95,7 +95,6 @@ public class Movement : MonoBehaviour
         }
         if (coldTimer <= 0)
         {
-            Destroy(Autoload.canvas);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
@@ -113,7 +112,6 @@ public class Movement : MonoBehaviour
         }
         if (transform.position.y < -200)
         {
-            Destroy(Autoload.canvas);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         compass.transform.rotation = world.transform.rotation;
@@ -127,7 +125,7 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
-        //speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+        speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
@@ -249,7 +247,6 @@ public class Movement : MonoBehaviour
             invinsTimer = 1;
             if (health <= 0)
             {
-                Destroy(Autoload.canvas);
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
         }

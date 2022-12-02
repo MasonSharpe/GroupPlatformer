@@ -10,17 +10,22 @@ public class Autoload : MonoBehaviour
     public int level;
     public float speedrunTimer;
     public bool timerVisible = false;
+    public bool firstTime = true;
     // Start is called before the first frame update
     void Start()
     {
         canvas = preCanv;
         DontDestroyOnLoad(canvas);
+        if (SceneManager.GetActiveScene().name == "MainMenu" && firstTime == false)
+        {
+            Destroy(preCanv);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene().name != "win" && SceneManager.GetActiveScene().name != "Main Menu")
+        if (SceneManager.GetActiveScene().name != "win" && SceneManager.GetActiveScene().name != "MainMenu")
         {
             speedrunTimer += Time.deltaTime;
         }
