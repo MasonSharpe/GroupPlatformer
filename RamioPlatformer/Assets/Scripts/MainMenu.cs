@@ -10,9 +10,17 @@ public class MainMenu : MonoBehaviour
     Autoload manager;
     public GameObject toggleText;
     public GameObject endText;
+    public GameObject preManager;
+    public bool firstTime;
     void Start()
     {
+        
+
         manager = Autoload.canvas.GetComponent<Autoload>();
+        if (manager.firstTime == false)
+        {
+            Destroy(preManager);
+        }
         endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
     }
 
@@ -34,7 +42,6 @@ public class MainMenu : MonoBehaviour
 
     public void Menu()
     {
-        Destroy(Autoload.canvas);
         SceneManager.LoadScene("MainMenu");
     }
 
