@@ -9,7 +9,7 @@ public class Autoload : MonoBehaviour
     public GameObject preCanv;
     public int level;
     public float speedrunTimer;
-    public bool timerVisible;
+    public bool timerVisible = false;
     // Start is called before the first frame update
     void Start()
     {
