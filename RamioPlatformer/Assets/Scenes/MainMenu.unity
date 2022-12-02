@@ -892,6 +892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Autoload
       objectReference: {fileID: 0}
+    - target: {fileID: 4809597848410907063, guid: e670960e172265f419ffb31ea1b8517b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e670960e172265f419ffb31ea1b8517b, type: 3}
 --- !u!1 &1256406231
@@ -1016,7 +1020,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toggleText: {fileID: 756922367}
   endText: {fileID: 0}
-  preManager: {fileID: 4809597848410907063, guid: e670960e172265f419ffb31ea1b8517b, type: 3}
+  preManager: {fileID: 1258087459}
+  firstTime: 0
+--- !u!1 &1258087459 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4809597848410907063, guid: e670960e172265f419ffb31ea1b8517b, type: 3}
+  m_PrefabInstance: {fileID: 1158384125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1320781727
 GameObject:
   m_ObjectHideFlags: 0

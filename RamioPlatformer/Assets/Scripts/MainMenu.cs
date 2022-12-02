@@ -14,12 +14,11 @@ public class MainMenu : MonoBehaviour
     public bool firstTime;
     void Start()
     {
-        
-
         manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.speedrunTimer = 0;
         if (manager.firstTime == false)
         {
-            Destroy(preManager);
+            preManager.SetActive(false);
         }
         endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
     }
