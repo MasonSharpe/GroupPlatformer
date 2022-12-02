@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     Autoload manager;
     public GameObject toggleText;
+    public GameObject endText;
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
+        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
     }
 
     // Update is called once per frame
