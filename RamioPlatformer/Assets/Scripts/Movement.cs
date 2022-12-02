@@ -44,11 +44,11 @@ public class Movement : MonoBehaviour
     public GameObject world;
     void Start()
     {
-        manager.firstTime = false;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
         manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.firstTime = false;
         manager.level = level;
         if (level > 1)
         {

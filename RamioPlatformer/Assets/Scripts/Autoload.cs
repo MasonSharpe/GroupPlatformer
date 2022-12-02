@@ -16,10 +16,6 @@ public class Autoload : MonoBehaviour
     {
         canvas = preCanv;
         DontDestroyOnLoad(canvas);
-        if (SceneManager.GetActiveScene().name == "MainMenu" && firstTime == false)
-        {
-            Destroy(preCanv);
-        }
     }
 
     // Update is called once per frame
