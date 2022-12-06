@@ -24,6 +24,7 @@ public class Movement : MonoBehaviour
     public GameObject scaleText;
     public GameObject slider;
     public GameObject tutText;
+    public GameObject tutPanel;
     public GameObject tempSlider;
     public GameObject speedTimer;
     public Transform water1;
@@ -130,9 +131,9 @@ public class Movement : MonoBehaviour
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
-        if (tutTimer < 0 && tutText.activeInHierarchy)
+        if (tutTimer < 0 && tutPanel.activeInHierarchy)
         {
-            tutText.SetActive(false);
+            tutPanel.SetActive(false);
         }
         if (rb.velocity.y < -0.1f && !grounded)
         {
@@ -208,7 +209,7 @@ public class Movement : MonoBehaviour
         {
             progressPowerups++;
             Destroy(collision.gameObject);
-            tutText.SetActive(true);
+            tutPanel.SetActive(true);
             tutTimer = 5;
             if (progressPowerups == 1)
             {
