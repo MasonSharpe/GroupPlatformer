@@ -11,6 +11,8 @@ public class MainMenu : MonoBehaviour
     public GameObject toggleText;
     public GameObject endText;
     public GameObject preManager;
+    public Text levelText;
+    public bool isWin = false;
     public bool firstTime;
     void Start()
     {
