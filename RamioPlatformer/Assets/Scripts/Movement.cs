@@ -165,6 +165,10 @@ public class Movement : MonoBehaviour
        {
            rb.gravityScale = heavyScale;
        }
+       if (manager.level == 5)
+            {
+                rb.gravityScale *= 0.2f;
+            }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
