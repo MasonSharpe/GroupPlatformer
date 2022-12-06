@@ -23,6 +23,33 @@ public class MainMenu : MonoBehaviour
             preManager.SetActive(false);
         }
         endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
+        if (isWin)
+        {
+            if (manager.level == 1)
+            {
+                levelText.text = "Nice! You fixed the ship! But you need more fuel!";
+            }
+            else if (manager.level == 2)
+            {
+                levelText.text = "You escaped the ocean! things are only going to get colder though...";
+            }
+            else if (manager.level == 3)
+            {
+                levelText.text = "We can almost leave this planet! But the worst has yet to come!";
+            }
+            else if (manager.level == 4)
+            {
+                levelText.text = "You have gotten into space! We just need a little more juice! This is it!";
+            }
+            else if (manager.level == 5)
+            {
+                levelText.text = "You got all the fuel! You win! But... you find excess parts on a planet to sell. This will be the hardest challenge yet.";
+            }
+            else if (manager.level == 5)
+            {
+                levelText.text = "You got the parts, flew home, sold them off, and now you are rich! People will speak of your tale for generations!!";
+            }
+        }
     }
 
     // Update is called once per frame
