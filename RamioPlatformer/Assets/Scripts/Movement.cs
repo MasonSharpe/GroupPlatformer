@@ -165,7 +165,7 @@ public class Movement : MonoBehaviour
        {
            rb.gravityScale = heavyScale;
        }
-       if (manager.level == 5)
+       if (level == 5)
             {
                 rb.gravityScale *= 0.2f;
             }
