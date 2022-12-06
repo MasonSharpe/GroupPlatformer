@@ -248,7 +248,7 @@ MonoBehaviour:
   endText: {fileID: 430203454}
   preManager: {fileID: 0}
   levelText: {fileID: 892178091}
-  isWin: 0
+  isWin: 1
   firstTime: 0
 --- !u!1 &97929663
 GameObject:

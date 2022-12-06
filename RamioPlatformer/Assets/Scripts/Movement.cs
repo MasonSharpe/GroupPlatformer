@@ -47,9 +47,9 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
-       // manager = Autoload.canvas.GetComponent<Autoload>();
-       // manager.firstTime = false;
-       // manager.level = level;
+        manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.firstTime = false;
+        manager.level = level;
         if (level > 1)
         {
             progressPowerups = 2;
@@ -125,7 +125,7 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
-       // speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+        speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;

@@ -17,12 +17,6 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
-        manager.speedrunTimer = 0;
-        if (manager.firstTime == false)
-        {
-            preManager.SetActive(false);
-        }
-        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
         if (isWin)
         {
             if (manager.level == 1)
@@ -45,11 +39,16 @@ public class MainMenu : MonoBehaviour
             {
                 levelText.text = "You got all the fuel! You win! But... you find excess parts on a planet to sell. This will be the hardest challenge yet.";
             }
-            else if (manager.level == 5)
+            else if (manager.level == 6)
             {
                 levelText.text = "You got the parts, flew home, sold them off, and now you are rich! People will speak of your tale for generations!!";
             }
         }
+        if (manager.firstTime == false)
+        {
+            preManager.SetActive(false);
+        }
+        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
     }
 
     // Update is called once per frame

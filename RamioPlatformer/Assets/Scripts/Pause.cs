@@ -46,6 +46,7 @@ public class Pause : MonoBehaviour
     public void GoToMain()
     {
         Time.timeScale = 1;
+        Autoload.canvas.GetComponent<Autoload>().speedrunTimer = 0;
         SceneManager.LoadScene("MainMenu");
     }
 }
