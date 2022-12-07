@@ -154,17 +154,20 @@ public class Movement : MonoBehaviour
             if (jumpJuice > 0)
            {
               jumpJuice -= 0.03f;
+              spriteR.color = new Color(0, 1, 1);
               rb.gravityScale = heavyScale * 0.2f;
            }
            else
            {
               rb.gravityScale = heavyScale;
+              spriteR.color = new Color(1, 1, 1);
               jumpJuice = -5;
            }
         }
        else
        {
            rb.gravityScale = heavyScale;
+           spriteR.color = new Color(1, 1, 1);
        }
        if (level == 5)
             {
@@ -254,6 +257,10 @@ public class Movement : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }
+        }
+        if (collision.gameObject.tag == "Laser")
+        {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
