@@ -111,7 +111,7 @@ public class Movement : MonoBehaviour
         {
             world.transform.Rotate(new Vector3(0, 0, -(120 / 2 / Mathf.PI / dist)));
         }
-        if (transform.position.y < -200)
+        if ((transform.position.y < -200 && level != 5) || (transform.position.y < -300 && level == 5))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
@@ -133,7 +133,7 @@ public class Movement : MonoBehaviour
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
         if (tutTimer < 0 && tutPanel.activeInHierarchy)
         {
-            tutPanel.SetActive(false);
+            tutPanel.SetActive(false); 
         }
         if (rb.velocity.y < -0.1f && !grounded)
         {
@@ -171,7 +171,7 @@ public class Movement : MonoBehaviour
        }
        if (level == 5)
             {
-                rb.gravityScale *= 0.2f;
+                rb.gravityScale *= 0.25f;
             }
     }
 
