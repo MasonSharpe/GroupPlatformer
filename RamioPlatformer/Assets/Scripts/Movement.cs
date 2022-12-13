@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
-            if (level == 5)
+            if (level == 6)
             {
                 SceneManager.LoadScene("win2");
             }

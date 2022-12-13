@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
-        endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+        endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString() + " (No skipping!!)";
         if (isWin)
         {
             if (manager.level == 1)
