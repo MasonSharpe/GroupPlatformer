@@ -17,6 +17,7 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
+        endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         if (isWin)
         {
             if (manager.level == 1)
@@ -48,8 +49,6 @@ public class MainMenu : MonoBehaviour
         {
             preManager.SetActive(false);
         }
-        print(manager.speedrunTimer);
-        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer.ToString();
     }
 
     // Update is called once per frame
