@@ -919,7 +919,7 @@ GameObject:
   - component: {fileID: 2167109755926454997}
   - component: {fileID: 2167109755926454998}
   - component: {fileID: 2167109755926454999}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -10037,7 +10037,7 @@ GameObject:
   - component: {fileID: 2167109756266858068}
   - component: {fileID: 2167109756266858069}
   - component: {fileID: 2167109756266858070}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Hazard
   m_TagString: Damage
   m_Icon: {fileID: 0}

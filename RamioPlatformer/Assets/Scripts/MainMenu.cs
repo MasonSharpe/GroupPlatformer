@@ -48,7 +48,8 @@ public class MainMenu : MonoBehaviour
         {
             preManager.SetActive(false);
         }
-        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer;
+        print(manager.speedrunTimer);
+        endText.GetComponent<Text>().text = "Final Time: " + manager.speedrunTimer.ToString();
     }
 
     // Update is called once per frame

@@ -13,6 +13,7 @@ public class Movement : MonoBehaviour
     [SerializeField]
     float rotateSpeed = 50.0f;
     bool grounded = false;
+    bool isTouchingHazard = false;
     int parts = 0;
     int progressPowerups = 0;
     public int partsNeeded;
@@ -36,6 +37,7 @@ public class Movement : MonoBehaviour
     // Rigidbody2D feet;
     float heavyScale = 1;
     float invinsTimer = 0;
+    float redTimer = 0;
     float tutTimer = 0;
     float coldTimer = 150f;
 
@@ -48,9 +50,9 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
-        //manager = Autoload.canvas.GetComponent<Autoload>();
-       // manager.firstTime = false;
-        //manager.level = level;
+        manager = Autoload.canvas.GetComponent<Autoload>();
+        manager.firstTime = false;
+        manager.level = level;
         if (level > 1)
         {
             progressPowerups = 2;
@@ -73,6 +75,17 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (level == 5)
+            {
+                SceneManager.LoadScene("win2");
+            }
+            else
+            {
+                SceneManager.LoadScene("win");
+            }
         }
         if (level == 3)
         {
@@ -97,6 +110,17 @@ public class Movement : MonoBehaviour
         if (coldTimer <= 0)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        if (invinsTimer <= 0 && isTouchingHazard)
+        {
+            health -= 15;
+            spriteR.color = new Color(1, 0, 0);
+            redTimer = 0.3f;
+            invinsTimer = 1;
+            if (health <= 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
         }
     }
     // Update is called once per frame
@@ -126,7 +150,8 @@ public class Movement : MonoBehaviour
         slider.GetComponent<Slider>().value = jumpJuice;
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
-       // speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+        redTimer -= Time.deltaTime;
+        speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
@@ -173,6 +198,17 @@ public class Movement : MonoBehaviour
             {
                 rb.gravityScale *= 0.25f;
             }
+       if (redTimer < 0)
+       {
+            if (spriteR.color.r != 0)
+            {
+                spriteR.color = new Color(1, 1, 1);
+            }
+        }
+        else
+        {
+            spriteR.color = new Color(1, 0, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -182,7 +218,7 @@ public class Movement : MonoBehaviour
             heavyScale = 2;
             
         }
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == 3)
         {
             grounded = true;
         }
@@ -237,7 +273,7 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.layer == 3)
         {
             grounded = false;
         }
@@ -245,18 +281,17 @@ public class Movement : MonoBehaviour
         {
             heavyScale = 1;
         }
+        if (collision.gameObject.tag == "Damage")
+        {
+            isTouchingHazard = false;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Damage" && invinsTimer <= 0)
         {
-            health -= 15;
-            invinsTimer = 1;
-            if (health <= 0)
-            {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            isTouchingHazard = true;
         }
         if (collision.gameObject.tag == "Laser")
         {

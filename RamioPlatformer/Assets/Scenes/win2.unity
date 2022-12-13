@@ -401,7 +401,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Devoloper time: ???'
+  m_Text: 'Devoloper time: 385'
 --- !u!222 &217478805
 CanvasRenderer:
   m_ObjectHideFlags: 0
