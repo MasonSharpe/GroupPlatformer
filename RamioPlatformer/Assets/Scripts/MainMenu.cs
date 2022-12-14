@@ -14,12 +14,13 @@ public class MainMenu : MonoBehaviour
     public Text levelText;
     public bool isWin = false;
     public bool firstTime;
+    public AudioClip theme;
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
         if (SceneManager.GetActiveScene().name == "win2")
         {
-            endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString() + " (No skipping!!)";
+            endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         }
         if (isWin)
         {
@@ -56,6 +57,7 @@ public class MainMenu : MonoBehaviour
         {
             toggleText.GetComponent<Text>().text = "Enable Timer";
         }
+        Autoload.canvas.GetComponent<AudioSource>().PlayOneShot(theme);
         
     }
 
@@ -67,6 +69,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
+        Autoload.canvas.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("level 1");
     }
     
@@ -82,6 +85,7 @@ public class MainMenu : MonoBehaviour
 
     public void NextLevel()
     {
+        Autoload.canvas.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("level " + (manager.level + 1));
     }
 

@@ -5,9 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class ImSad : MonoBehaviour
 {
+    float loadtime = 0;
     void Start()
     {
         
-        SceneManager.LoadScene("MainMenu");
+    }
+
+    private void Update()
+    {
+        loadtime += Time.deltaTime;
+        if (loadtime > 0.5f)
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }

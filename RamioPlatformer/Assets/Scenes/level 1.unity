@@ -284,6 +284,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 8300000, guid: c45572c94e16e784889efa7e1901f67a, type: 3}
+    - target: {fileID: 4157931405199643915, guid: f68ea8b0c7a780e4b90679015af89052, type: 3}
       propertyPath: world
       value: 
       objectReference: {fileID: 1160931652}

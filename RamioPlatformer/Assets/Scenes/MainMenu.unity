@@ -923,6 +923,7 @@ MonoBehaviour:
   levelText: {fileID: 0}
   isWin: 0
   firstTime: 0
+  theme: {fileID: 8300000, guid: d93af33be570f0c40a1f55312f59b6d0, type: 3}
 --- !u!1 &1320781727
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,6 +31,7 @@ public class Movement : MonoBehaviour
     public Transform water1;
     public Transform water2;
     public Autoload manager;
+    public AudioClip music;
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
@@ -51,6 +52,11 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
         manager = Autoload.canvas.GetComponent<Autoload>();
+        if (!Autoload.canvas.GetComponent<AudioSource>().isPlaying)
+        {
+            Autoload.canvas.GetComponent<AudioSource>().Stop();
+            Autoload.canvas.GetComponent<AudioSource>().PlayOneShot(music);
+        }
         manager.level = level;
         if (level > 1)
         {

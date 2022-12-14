@@ -10,6 +10,7 @@ public class Autoload : MonoBehaviour
     public int level;
     public float speedrunTimer;
     public bool timerVisible = false;
+    public AudioClip curMusic;
     // Start is called before the first frame update
     void Start()
     {
