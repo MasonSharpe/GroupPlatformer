@@ -51,7 +51,6 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
         manager = Autoload.canvas.GetComponent<Autoload>();
-        manager.firstTime = false;
         manager.level = level;
         if (level > 1)
         {
@@ -224,7 +223,7 @@ public class Movement : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Spaceship" && parts >= partsNeeded)
         {
-            if (level == 5)
+            if (level == 6)
             {
                 SceneManager.LoadScene("win2");
             }
