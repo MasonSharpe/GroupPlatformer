@@ -17,7 +17,10 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
-        endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString() + " (No skipping!!)";
+        if (SceneManager.GetActiveScene().name == "win2")
+        {
+            endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString() + " (No skipping!!)";
+        }
         if (isWin)
         {
             if (manager.level == 1)
@@ -45,10 +48,15 @@ public class MainMenu : MonoBehaviour
                 levelText.text = "You got the parts, flew home, sold them off, and now you are rich! People will speak of your tale for generations!!";
             }
         }
-        if (manager.firstTime == false)
+        if (manager.timerVisible)
         {
-            preManager.SetActive(false);
+            toggleText.GetComponent<Text>().text = "Disable Timer";
         }
+        else
+        {
+            toggleText.GetComponent<Text>().text = "Enable Timer";
+        }
+        
     }
 
     // Update is called once per frame
