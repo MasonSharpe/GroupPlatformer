@@ -16,7 +16,7 @@ public class FloatAnim : MonoBehaviour
             goingUp = !goingUp;
             timer = 0;
         }
-        if (gameObject.tag != "Spaceship")
+        if (gameObject.tag != "Spaceship" && Time.timeScale == 1)
         {
             if (goingUp)
             {

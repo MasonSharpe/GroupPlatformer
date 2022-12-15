@@ -11,6 +11,8 @@ public class Autoload : MonoBehaviour
     public float speedrunTimer;
     public bool timerVisible = false;
     public AudioClip curMusic;
+    public bool musicIsOn = true;
+    public float sfxVolume = 1;
     // Start is called before the first frame update
     void Start()
     {

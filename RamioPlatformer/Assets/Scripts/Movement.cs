@@ -16,6 +16,8 @@ public class Movement : MonoBehaviour
     bool isTouchingHazard = false;
     int parts = 0;
     int progressPowerups = 0;
+    bool isJumpJuicing = false;
+    bool isRotating = false;
     public int partsNeeded;
     public int level;
     public GameObject healthSlider;
@@ -32,18 +34,32 @@ public class Movement : MonoBehaviour
     public Transform water2;
     public Autoload manager;
     public AudioClip music;
+    public AudioClip deathSound;
+    public AudioClip walkSound;
+    public AudioClip jumpSound;
+    public AudioClip hurtSound;
+    public AudioClip rotateSound;
+    public AudioClip rotateOffSound;
+    public AudioClip jumpJuiceSound;
+    public AudioClip jumpJuiceOffSound;
+    public AudioClip progressPickupSound;
+    public AudioClip pickupSound;
+
     Animator animator;
     SpriteRenderer spriteR;
     Rigidbody2D rb;
+    AudioSource sound;
     // Rigidbody2D feet;
     float heavyScale = 1;
     float invinsTimer = 0;
     float redTimer = 0;
     float tutTimer = 0;
+    float footstepTimer = 0;
     float coldTimer = 150f;
 
     public int health = 100;
     float jumpJuice = 10;
+    float sfxVolume = 1;
 
     public GameObject world;
     void Start()
@@ -51,12 +67,16 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteR = GetComponent<SpriteRenderer>();
+        sound = Autoload.canvas.GetComponent<AudioSource>();
         manager = Autoload.canvas.GetComponent<Autoload>();
         if (!Autoload.canvas.GetComponent<AudioSource>().isPlaying)
         {
-            Autoload.canvas.GetComponent<AudioSource>().Stop();
-            Autoload.canvas.GetComponent<AudioSource>().PlayOneShot(music);
+           sound.Stop();
+           sound.clip = music;
+           if (manager.musicIsOn)
+            sound.Play();
         }
+        sfxVolume = manager.sfxVolume;
         manager.level = level;
         if (level > 1)
         {
@@ -76,10 +96,11 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector2(0, 300 * jumpSpeed));
             grounded = false;
             animator.SetTrigger("Jump");
+           sound.PlayOneShot(jumpSound, 0.35f * sfxVolume);
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
         }
         if (Input.GetKeyDown(KeyCode.P))
         {
@@ -114,17 +135,18 @@ public class Movement : MonoBehaviour
         }
         if (coldTimer <= 0)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
         }
         if (invinsTimer <= 0 && isTouchingHazard)
         {
             health -= 15;
+           sound.PlayOneShot(hurtSound, 0.2f * sfxVolume);
             spriteR.color = new Color(1, 0, 0);
             redTimer = 0.3f;
             invinsTimer = 1;
             if (health <= 0)
             {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                Die();
             }
         }
     }
@@ -134,15 +156,30 @@ public class Movement : MonoBehaviour
         float dist = Mathf.Abs(transform.position.x) + Mathf.Abs(transform.position.y);
         if (Input.GetKey(KeyCode.LeftArrow) && progressPowerups > 1)
 		{
+            if (!isRotating)
+            {
+                sound.PlayOneShot(rotateSound, 0.4f * sfxVolume);
+            }
             world.transform.Rotate(new Vector3(0, 0, (120 / 2 / Mathf.PI / dist)));
+            isRotating = true;
         }
         if (Input.GetKey(KeyCode.RightArrow) && progressPowerups > 1)
         {
+            if (!isRotating)
+            {
+                sound.PlayOneShot(rotateSound, 0.4f * sfxVolume);
+            }
             world.transform.Rotate(new Vector3(0, 0, -(120 / 2 / Mathf.PI / dist)));
+            isRotating = true;
+        }
+        if (isRotating && (!Input.GetKey(KeyCode.RightArrow) && !Input.GetKey(KeyCode.LeftArrow)))
+        {
+            sound.PlayOneShot(rotateOffSound, 0.4f * sfxVolume);
+            isRotating = false;
         }
         if ((transform.position.y < -200 && level != 5) || (transform.position.y < -300 && level == 5))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
         }
         compass.transform.rotation = world.transform.rotation;
         partsText.GetComponent<Text>().text = (partsNeeded - parts).ToString() + " Left";
@@ -156,11 +193,17 @@ public class Movement : MonoBehaviour
         healthSlider.GetComponent<Slider>().value = health;
         tempSlider.GetComponent<Slider>().value = coldTimer;
         redTimer -= Time.deltaTime;
+        footstepTimer -= Time.deltaTime;
         speedTimer.GetComponent<Text>().text = (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
         float moveX = Input.GetAxis("Horizontal");
         invinsTimer -= Time.deltaTime;
         tutTimer -= Time.deltaTime;
         rb.velocity = new Vector2(moveX * moveSpeed, rb.velocity.y);
+        if (moveX != 0 && footstepTimer < -0.5f && grounded)
+        {
+           sound.PlayOneShot(walkSound, 0.1f * sfxVolume);
+            footstepTimer = 0;
+        }
         if (tutTimer < 0 && tutPanel.activeInHierarchy)
         {
             tutPanel.SetActive(false); 
@@ -183,20 +226,35 @@ public class Movement : MonoBehaviour
         {
             if (jumpJuice > 0)
            {
-              jumpJuice -= 0.03f;
-              spriteR.color = new Color(0, 1, 1);
-              rb.gravityScale = heavyScale * 0.2f;
+                if (!isJumpJuicing)
+                {
+                   sound.PlayOneShot(jumpJuiceSound, 0.2f * sfxVolume);
+                }
+                isJumpJuicing = true;
+                jumpJuice -= 0.03f;
+                spriteR.color = new Color(0, 1, 1);
+                rb.gravityScale = heavyScale * 0.2f;
            }
            else
            {
-              rb.gravityScale = heavyScale;
+                if (isJumpJuicing)
+                {
+                   sound.PlayOneShot(jumpJuiceOffSound, 0.3f * sfxVolume);
+                }
+                isJumpJuicing = false;
+                rb.gravityScale = heavyScale;
               spriteR.color = new Color(1, 1, 1);
               jumpJuice = -5;
            }
         }
        else
        {
-           rb.gravityScale = heavyScale;
+            if (isJumpJuicing)
+            {
+               sound.PlayOneShot(jumpJuiceOffSound, 0.3f * sfxVolume);
+            }
+            isJumpJuicing = false;
+            rb.gravityScale = heavyScale;
            spriteR.color = new Color(1, 1, 1);
        }
        if (level == 5)
@@ -242,16 +300,19 @@ public class Movement : MonoBehaviour
         {
             jumpJuice = 10;
             health = 100;
+            sound.PlayOneShot(pickupSound, 0.5f * sfxVolume);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "Part")
         {
             parts += 1;
+            sound.PlayOneShot(progressPickupSound, 0.5f * sfxVolume);
             Destroy(collision.gameObject);
         }
         else if (collision.gameObject.tag == "ProgressPowerup")
         {
             progressPowerups++;
+            sound.PlayOneShot(progressPickupSound, 0.5f * sfxVolume);
             Destroy(collision.gameObject);
             tutPanel.SetActive(true);
             tutTimer = 5;
@@ -300,7 +361,13 @@ public class Movement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Laser")
         {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Die();
         }
+    }
+
+    private void Die()
+    {
+       sound.PlayOneShot(deathSound, 0.2f * sfxVolume);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

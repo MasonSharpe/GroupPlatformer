@@ -558,6 +558,17 @@ MonoBehaviour:
   water1: {fileID: 0}
   water2: {fileID: 0}
   manager: {fileID: 0}
+  music: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: 2c40051a1673ca648b02881162bda337, type: 3}
+  walkSound: {fileID: 8300000, guid: ae9a57fbe9fa01a4d8bb09437c77bab4, type: 3}
+  jumpSound: {fileID: 8300000, guid: c19924ab78fa9e049a2e55fa0e337e68, type: 3}
+  hurtSound: {fileID: 8300000, guid: e9251aa95dfa4524e86b6590377fbdea, type: 3}
+  rotateSound: {fileID: 8300000, guid: 2092768d064722d46bc4c7dd273e77a9, type: 3}
+  rotateOffSound: {fileID: 8300000, guid: fe9b2bfb3d7c631479c3b495b692494a, type: 3}
+  jumpJuiceSound: {fileID: 8300000, guid: 98c6b0b458ac1a8469ab5c536e263c8e, type: 3}
+  jumpJuiceOffSound: {fileID: 8300000, guid: be1a0fb5abe44cb42a146b2eadaf5bdd, type: 3}
+  progressPickupSound: {fileID: 8300000, guid: 652dc40e0f78ce54b8a608a4fa7da9cd, type: 3}
+  pickupSound: {fileID: 8300000, guid: 490750d19c74da2429095f0f92d3cf4f, type: 3}
   health: 100
   world: {fileID: 0}
 --- !u!95 &2972889999273577880

@@ -11,10 +11,13 @@ public class MainMenu : MonoBehaviour
     public GameObject toggleText;
     public GameObject endText;
     public GameObject preManager;
+    public Toggle musicIsOn;
+    public Slider sfxVolume;
     public Text levelText;
     public bool isWin = false;
     public bool firstTime;
     public AudioClip theme;
+    public AudioClip winTheme;
     void Start()
     {
         manager = Autoload.canvas.GetComponent<Autoload>();
@@ -49,16 +52,29 @@ public class MainMenu : MonoBehaviour
                 levelText.text = "You got the parts, flew home, sold them off, and now you are rich! People will speak of your tale for generations!!";
             }
         }
-        if (manager.timerVisible)
+        Autoload.canvas.GetComponent<AudioSource>().Stop();
+        if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            toggleText.GetComponent<Text>().text = "Disable Timer";
+            if (manager.timerVisible)
+            {
+                toggleText.GetComponent<Text>().text = "Disable Timer";
+            }
+            else
+            {
+                toggleText.GetComponent<Text>().text = "Enable Timer";
+            }
+            Autoload.canvas.GetComponent<AudioSource>().clip = theme;
+            musicIsOn.isOn = manager.musicIsOn;
+            sfxVolume.value = manager.sfxVolume;
         }
         else
         {
-            toggleText.GetComponent<Text>().text = "Enable Timer";
+            Autoload.canvas.GetComponent<AudioSource>().clip = winTheme;
         }
-        Autoload.canvas.GetComponent<AudioSource>().PlayOneShot(theme);
-        
+        if (musicIsOn)
+        {
+            Autoload.canvas.GetComponent<AudioSource>().Play();
+        }
     }
 
     // Update is called once per frame
@@ -70,6 +86,8 @@ public class MainMenu : MonoBehaviour
     public void StartGame()
     {
         Autoload.canvas.GetComponent<AudioSource>().Stop();
+        manager.musicIsOn = musicIsOn.isOn;
+        manager.sfxVolume = sfxVolume.value;
         SceneManager.LoadScene("level 1");
     }
     
@@ -99,6 +117,18 @@ public class MainMenu : MonoBehaviour
         else
         {
             toggleText.GetComponent<Text>().text = "Enable Timer";
+        }
+    }
+
+    public void musicToggled()
+    {
+        if (musicIsOn.isOn)
+        {
+            Autoload.canvas.GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            Autoload.canvas.GetComponent<AudioSource>().Stop();
         }
     }
 }

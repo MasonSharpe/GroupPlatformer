@@ -253,6 +253,8 @@ MonoBehaviour:
   levelText: {fileID: 892178091}
   isWin: 1
   firstTime: 0
+  theme: {fileID: 0}
+  winTheme: {fileID: 8300000, guid: ef6e59c03c92ce14bb52b0c3496ef2b2, type: 3}
 --- !u!1 &97929663
 GameObject:
   m_ObjectHideFlags: 0
