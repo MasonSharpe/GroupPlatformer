@@ -59,6 +59,7 @@ public class Movement : MonoBehaviour
 
     public int health = 100;
     float jumpJuice = 10;
+    bool sfxIsOn = true;
     float sfxVolume = 1;
 
     public GameObject world;
@@ -76,7 +77,15 @@ public class Movement : MonoBehaviour
            if (manager.musicIsOn)
             sound.Play();
         }
-        sfxVolume = manager.sfxVolume;
+        sfxIsOn = manager.sfxIsOn;
+        if (sfxIsOn)
+        {
+            sfxVolume = 1;
+        }
+        else
+        {
+            sfxVolume = 0;
+        }
         manager.level = level;
         if (level > 1)
         {

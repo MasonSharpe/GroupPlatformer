@@ -8,11 +8,11 @@ public class MainMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     Autoload manager;
-    public GameObject toggleText;
     public GameObject endText;
     public GameObject preManager;
+    public Toggle timerIsOn;
     public Toggle musicIsOn;
-    public Slider sfxVolume;
+    public Toggle sfxIsOn;
     public Text levelText;
     public bool isWin = false;
     public bool firstTime;
@@ -55,23 +55,16 @@ public class MainMenu : MonoBehaviour
         Autoload.canvas.GetComponent<AudioSource>().Stop();
         if (SceneManager.GetActiveScene().name == "MainMenu")
         {
-            if (manager.timerVisible)
-            {
-                toggleText.GetComponent<Text>().text = "Disable Timer";
-            }
-            else
-            {
-                toggleText.GetComponent<Text>().text = "Enable Timer";
-            }
             Autoload.canvas.GetComponent<AudioSource>().clip = theme;
             musicIsOn.isOn = manager.musicIsOn;
-            sfxVolume.value = manager.sfxVolume;
+            sfxIsOn.isOn = manager.sfxIsOn;
+            timerIsOn.isOn = manager.timerVisible;
         }
         else
         {
             Autoload.canvas.GetComponent<AudioSource>().clip = winTheme;
         }
-        if (musicIsOn)
+        if (manager.musicIsOn)
         {
             Autoload.canvas.GetComponent<AudioSource>().Play();
         }
@@ -87,7 +80,8 @@ public class MainMenu : MonoBehaviour
     {
         Autoload.canvas.GetComponent<AudioSource>().Stop();
         manager.musicIsOn = musicIsOn.isOn;
-        manager.sfxVolume = sfxVolume.value;
+        manager.sfxIsOn = sfxIsOn.isOn;
+        manager.timerVisible = timerIsOn.isOn; 
         SceneManager.LoadScene("level 1");
     }
     
@@ -107,18 +101,6 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene("level " + (manager.level + 1));
     }
 
-    public void toggleTimer()
-    {
-        manager.timerVisible = !manager.timerVisible;
-        if (manager.timerVisible)
-        {
-            toggleText.GetComponent<Text>().text = "Disable Timer";
-        }
-        else
-        {
-            toggleText.GetComponent<Text>().text = "Enable Timer";
-        }
-    }
 
     public void musicToggled()
     {

@@ -12,7 +12,7 @@ public class Autoload : MonoBehaviour
     public bool timerVisible = false;
     public AudioClip curMusic;
     public bool musicIsOn = true;
-    public float sfxVolume = 1;
+    public bool sfxIsOn = true;
     // Start is called before the first frame update
     void Start()
     {
