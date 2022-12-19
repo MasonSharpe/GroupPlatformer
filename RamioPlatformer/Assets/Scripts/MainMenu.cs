@@ -16,6 +16,7 @@ public class MainMenu : MonoBehaviour
     public Text levelText;
     public bool isWin = false;
     public bool firstTime;
+    public GameObject goofyText;
     public AudioClip theme;
     public AudioClip winTheme;
     void Start()
@@ -24,6 +25,10 @@ public class MainMenu : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "win2")
         {
             endText.GetComponent<Text>().text = "Final Time: " + (Mathf.Round(manager.speedrunTimer * 100) / 100).ToString();
+            if (manager.goofyMode)
+            {
+                goofyText.GetComponent<Text>().text = "No jump juice needed! You really are a master of this game! Congratulations!!";
+            }
         }
         if (isWin)
         {
@@ -59,6 +64,7 @@ public class MainMenu : MonoBehaviour
             musicIsOn.isOn = manager.musicIsOn;
             sfxIsOn.isOn = manager.sfxIsOn;
             timerIsOn.isOn = manager.timerVisible;
+            manager.goofyMode = false;
         }
         else
         {

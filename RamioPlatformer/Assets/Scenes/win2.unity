@@ -251,10 +251,11 @@ MonoBehaviour:
   preManager: {fileID: 0}
   timerIsOn: {fileID: 0}
   musicIsOn: {fileID: 0}
-  sfxVolume: {fileID: 0}
+  sfxIsOn: {fileID: 0}
   levelText: {fileID: 892178091}
   isWin: 1
   firstTime: 0
+  goofyText: {fileID: 814575185}
   theme: {fileID: 0}
   winTheme: {fileID: 8300000, guid: ef6e59c03c92ce14bb52b0c3496ef2b2, type: 3}
 --- !u!1 &97929663
@@ -1064,8 +1065,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Also try beating the whole game without using the boosted jump power! It's
-    possible! Even the first level!
+  m_Text: Also try beating the whole game without picking up the boosted jump power!
+    It's possible! Even the first level!
 --- !u!222 &814575188
 CanvasRenderer:
   m_ObjectHideFlags: 0
