@@ -51,6 +51,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 9870000d17119a442ab8a7b166654b6a, type: 3}
     - {fileID: 2800000, guid: 0972fbe219b9d9d4eabd11a0033d3c45, type: 3}
     - {fileID: 2800000, guid: d21c7147d99967d4eadca1c7faedc801, type: 3}
+    - {fileID: 2800000, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
     bindAsDefault: 1
     isAtlasV2: 0
     cachedData: {fileID: 0}
@@ -104,6 +105,19 @@ SpriteAtlas:
   - {fileID: -979385085, guid: 9870000d17119a442ab8a7b166654b6a, type: 3}
   - {fileID: 1861686669, guid: 9870000d17119a442ab8a7b166654b6a, type: 3}
   - {fileID: -1325236444, guid: 9870000d17119a442ab8a7b166654b6a, type: 3}
+  - {fileID: -2058290863, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: -850557163, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: -340499916, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: -1934466431, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 194229512, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 1835405648, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: -2030837230, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 978676294, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 823447558, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 239718711, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: -723863179, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 221175535, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
+  - {fileID: 2101212118, guid: 4949417d6122c234f9d5f7f5bea67e74, type: 3}
   - {fileID: -220493457, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
   - {fileID: 544692447, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
   - {fileID: 261372944, guid: b1d181bdf68bdbf4d83d758d0bfe9417, type: 3}
@@ -167,6 +181,19 @@ SpriteAtlas:
   - fire!!_1
   - fire!!_2
   - fire!!_3
+  - space 3_1
+  - space 3_0
+  - space 3_3
+  - space 3_2
+  - space 3_5
+  - space 3_4
+  - space 3_7
+  - space 3_6
+  - space 3_9
+  - space 3_8
+  - space 3_10
+  - space 3_11
+  - space 3_12
   - ice_9
   - ice_8
   - ice_5

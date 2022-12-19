@@ -231,7 +231,7 @@ public class Movement : MonoBehaviour
         {
             spriteR.flipX = false;
         }
-        if (Input.GetKey(KeyCode.UpArrow) && progressPowerups > 0)
+        if (Input.GetKey(KeyCode.UpArrow) && progressPowerups > 0 && !manager.goofyMode)
         {
             if (jumpJuice > 0)
            {
@@ -318,14 +318,19 @@ public class Movement : MonoBehaviour
             sound.PlayOneShot(progressPickupSound, 0.5f * sfxVolume);
             Destroy(collision.gameObject);
         }
-        else if (collision.gameObject.tag == "ProgressPowerup")
+        else if (collision.gameObject.tag == "ProgressPowerup" && !manager.goofyMode)
         {
             progressPowerups++;
             sound.PlayOneShot(progressPickupSound, 0.5f * sfxVolume);
             Destroy(collision.gameObject);
             tutPanel.SetActive(true);
             tutTimer = 5;
-            if (progressPowerups == 1)
+            if (progressPowerups == 1 && transform.position.x > 20)
+            {
+                progressPowerups++;
+                manager.goofyMode = true;
+            }
+                if (progressPowerups == 1)
             {
                 tutText.GetComponent<Text>().text = "Hold Up Arrow to active low gravity mode! But be careful! You only have a limited amount!";
             }
