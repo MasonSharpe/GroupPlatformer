@@ -246,12 +246,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9453d9d4051a8d74080d0197567ca1ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  toggleText: {fileID: 0}
   endText: {fileID: 0}
   preManager: {fileID: 0}
+  timerIsOn: {fileID: 0}
+  musicIsOn: {fileID: 0}
+  sfxIsOn: {fileID: 0}
   levelText: {fileID: 892178091}
   isWin: 1
   firstTime: 0
+  goofyText: {fileID: 0}
   theme: {fileID: 0}
   winTheme: {fileID: 8300000, guid: ef6e59c03c92ce14bb52b0c3496ef2b2, type: 3}
 --- !u!1 &97929663
@@ -313,7 +316,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df637f5affad18642b024658af24bf4b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -865,8 +868,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -188.20001, y: -173}
-  m_SizeDelta: {x: 229.24872, y: 48.52002}
+  m_AnchoredPosition: {x: -184.18, y: -173}
+  m_SizeDelta: {x: 237.28, y: 48.52}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &814575187
 MonoBehaviour:
@@ -889,7 +892,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df637f5affad18642b024658af24bf4b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -969,7 +972,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df637f5affad18642b024658af24bf4b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
@@ -1049,7 +1052,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df637f5affad18642b024658af24bf4b, type: 3}
     m_FontSize: 23
     m_FontStyle: 0
     m_BestFit: 0
@@ -1129,7 +1132,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: df637f5affad18642b024658af24bf4b, type: 3}
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 0
